@@ -15,7 +15,7 @@ router.get('/eliminar/:id', editorialesController.deleteEditorial);
 router.get('/editar/:id', editorialesController.editEditorialForm);
 
 // Guardar cambios
-router.post('/editar/:id', editorialesController.updateEtorial);
+router.post('/editar/:id', editorialesController.updateEditorial);
 
 
 module.exports = router;
