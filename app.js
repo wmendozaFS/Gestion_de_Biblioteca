@@ -8,7 +8,7 @@ const librosRoutes = require('./routes/librosRoutes');
 const autoresRoutes = require('./routes/autoresRoutes');
 const editorialesRoutes = require('./routes/editorialesRoutes');
 const prestamosRoutes = require('./routes/prestamosRoutes');
-const prestamosRoutes = require('./routes/empleados');
+const empleadosRoutes = require('./routes/empleados');
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));

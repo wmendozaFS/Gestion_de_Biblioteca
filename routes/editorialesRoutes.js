@@ -12,10 +12,10 @@ router.post('/crear', editorialesController.createEditorial);
 router.get('/eliminar/:id', editorialesController.deleteEditorial);
 
 // Mostrar formulario de edición
-router.get('/editar/:id', autoresController.editEditorialForm);
+router.get('/editar/:id', editorialesController.editEditorialForm);
 
 // Guardar cambios
-router.post('/editar/:id', autoresController.updateEtorial);
+router.post('/editar/:id', editorialesController.updateEtorial);
 
 
 module.exports = router;
