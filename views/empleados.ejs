@@ -1,13 +1,13 @@
 <%- include('partials/header') %>
 
-<h2 class="mb-4 text-primary">Usuarios registrados</h2>
+<h2 class="mb-4 text-primary">Empleados registrados</h2>
 
 <!-- Lista de usuarios -->
 <ul class="list-group mb-4 shadow-sm">
-  <% if (usuarios.length > 0) { %>
-    <% usuarios.forEach(usuario => { %>
+  <% if (empleados.length > 0) { %>
+    <% empleados.forEach(usuario => { %>
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span><strong><%= usuario.nombre %></strong> - <%= usuario.email %></span>
+        <span><strong><%= empleado.nombre %></strong> - <%= usuario.email %></span>
         <a href="/empleados/editar/<%= empleado.id %>" class="btn btn-sm btn-warning">Editar</a>
         <a href="/empleados/eliminar/<%= empleado.id %>" class="btn btn-sm btn-danger">Eliminar</a>
       </li>
@@ -23,6 +23,11 @@
     <h5 class="card-title">Añadir nuevo usuario</h5>
     <form action="<%= action || '/empleados/crear'%>" method="POST" class="row g-3 mt-3">
       <div class="col-md-6">
+        <label for="dni" class="form-label">Dni</label>
+        <input type="text" name="dni" id="dni" class="form-control" 
+        value="<%= empleado.dni || '' %>" required>
+      </div>
+      <div class="col-md-6">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" name="nombre" id="nombre" class="form-control" 
         value="<%= empleado.nombre || '' %>" required>
@@ -33,7 +38,7 @@
         value="<%= empleado.email || '' %>"required>
       </div>
       <div class="col-12 text-end">
-        <button type="submit" class="btn btn-success"><%= usuario.id?'Actualizar':'Crear'%></button>
+        <button type="submit" class="btn btn-success"><%= empleado.id?'Actualizar':'Crear'%></button>
       </div>
     </form>
   </div>

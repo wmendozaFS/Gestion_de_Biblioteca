@@ -27,7 +27,7 @@ exports.editarEmpleado = async (req, res) => {
 };
 
 // editar usuario
-exports.actualizarUsuario = async (req, res) => {
+exports.actualizarEmpleado = async (req, res) => {
   const { id } = req.params;
   const { nombre, email } = req.body;
 
