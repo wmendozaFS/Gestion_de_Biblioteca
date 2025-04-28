@@ -2,7 +2,7 @@ const pool = require('../db/conexion');
 
 // Mostrar todos los empleados
 exports.getEmpleados = async (req, res) => {
-  const [empleados] = await pool.query('SELECT * FROM usuarios');
+  const [empleados] = await pool.query('SELECT * FROM empleados');
   res.render('empleados', { empleados , empleado:{}, action:'/empleados/crear'});
 };
 
@@ -16,21 +16,21 @@ exports.createEmpleado = async (req, res) => {
 // Eliminar usuario
 exports.deleteEmpleado = async (req, res) => {
   const { id } = req.params;
-  await pool.query('DELETE FROM empleados WHERE id = ?', [id]);
+  await pool.query('DELETE FROM empleados WHERE id_empleado = ?', [id]);
   res.redirect('/empleados');
 };
 // editar usuario
 exports.editarEmpleado = async (req, res) => {
   const { id } = req.params;
-  const [result] = await pool.query('SELECT * FROM empleados WHERE id = ?', [id]);
+  const [result] = await pool.query('SELECT * FROM empleados WHERE id_empleado = ?', [id]);
   res.render('empleados',{empleados:{},empleado: result[0], action:`/empleados/actualizar/${id}`})
 };
 
 // editar usuario
 exports.actualizarEmpleado = async (req, res) => {
   const { id } = req.params;
-  const { nombre, email } = req.body;
+  const { dni, nombre, email } = req.body;
 
-  await pool.query('UPDATE empleados SET dni=?, nombre=?, email=? WHERE id = ?', [dni, nombre, email,id]);
+  await pool.query('UPDATE empleados SET dni=?, nombre=?, email=? WHERE id_empleado = ?', [dni, nombre, email,id]);
   res.redirect('/empleados');
 };

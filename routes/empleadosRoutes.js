@@ -16,4 +16,5 @@ router.get('/editar/:id', empleadosController.editarEmpleado);
 
 // actualizar usuario
 router.post('/actualizar/:id', empleadosController.actualizarEmpleado);
+
 module.exports = router;
