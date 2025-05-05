@@ -9,7 +9,7 @@ exports.getEmpleados = async (req, res) => {
 // Crear empleado nuevo
 exports.createEmpleado = async (req, res) => {
   const { dni, nombre, email } = req.body;
-  await pool.query('INSERT INTO empleados (dni, nombre, email) VALUES (?, ?, ?)', [dni, nombre, email]);
+  await pool.query('INSERT INTO empleados (dni, nombre, email, ) VALUES (?, ?, ?)', [dni, nombre, email]);
   res.redirect('/empleados');
 };
 
