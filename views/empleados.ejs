@@ -7,9 +7,12 @@
   <% if (empleados.length > 0) { %>
     <% empleados.forEach(empleado => { %>
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span><strong><%= empleado.nombre %></strong> - <%= empleado.email %></span>
-        <a href="/empleados/editar/<%= empleado.id_empleado %>" class="btn btn-sm btn-warning">Editar</a>
-        <a href="/empleados/eliminar/<%= empleado.id_empleado %>" class="btn btn-sm btn-danger">Eliminar</a>
+        <span><strong><%= empleado.dni %></strong> - <strong><%= empleado.nombre %></strong> - <%= empleado.email %></span>
+        <div>
+          <a href="/empleados/editar/<%= empleado.id_empleado %>" class="btn btn-sm btn-info">Ver</a>
+          <a href="/empleados/editar/<%= empleado.id_empleado %>" class="btn btn-sm btn-warning">Editar</a>
+          <a href="/empleados/eliminar/<%= empleado.id_empleado %>" class="btn btn-sm btn-danger">Eliminar</a>
+        </div>
       </li>
     <% }); %>
   <% } else { %>
@@ -20,25 +23,52 @@
 <!-- Formulario para añadir nuevo empleado -->
 <div class="card shadow">
   <div class="card-body">
-    <h5 class="card-title">Añadir nuevo epleado</h5>
+    <h5 class="card-title">Añadir nuevo empleado</h5>
     <form action="<%= action || '/empleados/crear'%>" method="POST" class="row g-3 mt-3">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="dni" class="form-label">Dni</label>
         <input type="text" name="dni" id="dni" class="form-control" 
         value="<%= empleado.dni || '' %>" required>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="nombre" class="form-label">Nombre</label>
         <input type="text" name="nombre" id="nombre" class="form-control" 
         value="<%= empleado.nombre || '' %>" required>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <label for="email" class="form-label">Correo electrónico</label>
         <input type="email" name="email" id="email" class="form-control" 
         value="<%= empleado.email || '' %>"required>
       </div>
+      <div class="col-md-4">
+        <label for="direccion" class="form-label">Direccion</label>
+        <input type="text" name="direccion" id="direccion" class="form-control" 
+        value="<%= empleado.direccion || '' %>" required>
+      </div>
+      <div class="col-md-4">
+        <label for="CP" class="form-label">CP</label>
+        <input type="text" name="CP" id="CP" class="form-control" 
+        value="<%= empleado.CP || '' %>" required>
+      </div>
+      <div class="col-md-4">
+        <label for="provincia" class="form-label">Provincia</label>
+        <input type="provincia" name="provincia" id="provincia" class="form-control" 
+        value="<%= empleado.provincia || '' %>"required>
+      </div>
+      <div class="col-md-12">
+        <label for="iban" class="form-label">IBAN</label>
+        <input type="iban" name="iban" id="iban" class="form-control" 
+        value="<%= empleado.iban || '' %>"required>
+      </div>
+      <div class="col-md-12">
+        <label for="genero" class="form-label">Genero</label>
+        <input type="checkbox" name="opciones[]" value="Masculino">Masculino
+        <input type="checkbox" name="opciones[]" value="Femenino">Femenino
+        <input type="checkbox" name="opciones[]" value="No definido">No definido
+        
+      </div>
       <div class="col-12 text-end">
-        <button type="submit" class="btn btn-success"><%= empleado.id?'Actualizar':'Crear'%></button>
+        <button type="submit" class="btn btn-success"><%= empleado.id_empleado?'Actualizar':'Crear'%></button>
       </div>
     </form>
   </div>
